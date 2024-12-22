@@ -1,0 +1,43 @@
+name: NodeJS with Webpack
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Main checkout
+      uses: actions/checkout@v3
+
+    - name: Sub checkout
+      uses: actions/checkout@v3
+      with:
+        ripository: ReoHosokawa/type_script_sample
+        path: ./type_script_sample
+        ssh-key: ${{ secrets.PRIVATE_SSH_KEY }}
+
+    - name: Git setting
+      run: |
+        git config --local user.email "94281946+ReoHosokawa@users.noreply.github.com"
+        git config --local user.name "ReoHosokawa"
+
+    - name: Copy
+      run: |
+        robocopy ./type_script_sample/public ./public /s
+    - name: Build & Commit
+      run: |
+        git add ./public/* 
+        git commit -m "build result commit" -a
+        git pull origin main
+        git push origin main
+      
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
