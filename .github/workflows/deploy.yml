@@ -28,9 +28,6 @@ jobs:
         cd main
         git config --local user.email "94281946+ReoHosokawa@users.noreply.github.com"
         git config --local user.name "ReoHosokawa"
-
-    - name: chdir check
-      run: chdir
     
     - name: tree check
       run: |
