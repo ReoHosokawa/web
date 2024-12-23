@@ -30,7 +30,9 @@ jobs:
         git config --local user.name "ReoHosokawa"
 
     - name: dir check
-      run: dir D:\a\web\web
+      run: |
+        dir D:\a\web\web
+        dir D:\a\web\web\type_script_sample
     
     - name: tree check
       run: |
