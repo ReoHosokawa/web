@@ -39,17 +39,17 @@ jobs:
         tree D:\a\web\web
         tree D:\a\web\web\type_script_sample
 
-    - name: Copy
-      run: robocopy ./type_script_sample/public ./public /s
-    - name: Build & Commit
-      run: |
-        git add ./public/* 
-        git commit -m "build result commit" -a
-        git pull origin main
-        git push origin main
+    # - name: Copy
+    #   run: robocopy ./type_script_sample/public ./public /s
+    # - name: Build & Commit
+    #   run: |
+    #     git add ./public/* 
+    #     git commit -m "build result commit" -a
+    #     git pull origin main
+    #     git push origin main
       
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public
+    # - name: Deploy
+    #   uses: peaceiris/actions-gh-pages@v3
+    #   with:
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
+    #     publish_dir: ./public
