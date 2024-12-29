@@ -31,8 +31,8 @@ jobs:
 
     - name: Build & Commit
       run: |
-        robocopy ./type_script_sample/public ./public /s
-        git add ./public/* 
+        robocopy ./type_script_sample/public ./main/public /s
+        git add ./main/public/* 
         git commit -m "build result commit" -a
         git pull origin main
         git push origin main
@@ -41,4 +41,4 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public
+        publish_dir: ./main/public
