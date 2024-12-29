@@ -1,4 +1,4 @@
-name: NodeJS with Webpack
+name: web program deploy
 
 on:
   workflow_dispatch:
@@ -29,7 +29,7 @@ jobs:
         git config --local user.email "94281946+ReoHosokawa@users.noreply.github.com"
         git config --local user.name "ReoHosokawa"
 
-    - name: Build & Commit
+    - name: Copy & Commit
       run: |
         robocopy ./type_script_sample/public ./main/public /s
         cd main
