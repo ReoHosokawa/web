@@ -30,7 +30,9 @@ jobs:
         git config --local user.name "ReoHosokawa"
 
     - name: Copy
-      run: robocopy ./type_script_sample/public ./public /s
+      run: |
+        robocopy ./type_script_sample/public ./public /s
+        if ErrorLevel 8 (echo 1) else (echo 0)
     - name: Build & Commit
       run: |
         git add ./public/* 
