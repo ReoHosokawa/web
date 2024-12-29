@@ -32,7 +32,8 @@ jobs:
     - name: Build & Commit
       run: |
         robocopy ./type_script_sample/public ./main/public /s
-        git add ./main/public/* 
+        cd main
+        git add ./public/* 
         git commit -m "build result commit" -a
         git pull origin main
         git push origin main
