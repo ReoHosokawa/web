@@ -32,11 +32,11 @@ jobs:
     - name: Copy
       run: |
         robocopy ./type_script_sample/public ./public /s
-        if (%ErrorLevel% EQU 8) (
+        if (%ErrorLevel% EQU 8) {
           echo 1
-        ) else (
+        } else {
           echo 0
-        )
+        }
     - name: Build & Commit
       run: |
         git add ./public/* 
