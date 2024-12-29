@@ -31,8 +31,8 @@ jobs:
 
     - name: Copy
       run: |
-        robocopy ./type_script_sample/public ./public /s
-        if (errorlevel EQU 8) {
+        set RESULT = robocopy ./type_script_sample/public ./public /s
+        if (%RESULT% EQU 8) {
           echo 1
         } else {
           echo 0
