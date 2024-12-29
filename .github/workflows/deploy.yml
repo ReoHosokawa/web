@@ -19,7 +19,7 @@ jobs:
     - name: Sub checkout
       uses: actions/checkout@v3
       with:
-        ripository: ReoHosokawa/type_script_sample
+        repository: ReoHosokawa/type_script_sample
         path: type_script_sample
         ssh-key: ${{ secrets.PRIVATE_SSH_KEY }}
 
